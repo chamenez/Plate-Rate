@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Welcome
+                </h1>
+                <h2 class="subtitle">
+                    Explore the best restaurants in town
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <div class="columns is-multiline">
+        {% for restaurant in restaurants %}
+            <div class="column is-3">
+                <div class="card has-background-grey">                    
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4 has-text-centered has-text-white">
+                                    {{ restaurant.name }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="card-footer">
+                        <a href="{% url 'restaurant_detail' restaurant.slug %}" class="card-footer-item">Restaurant Detail</a>
+                    </footer>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

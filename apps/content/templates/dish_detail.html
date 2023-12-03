@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    {{ restaurant.name }} - {{ dish.name }}
+                </h1>
+                <h2 class="subtitle">
+                    Explore the delicious details
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <div class="box has-background-grey has-text-white">
+
+                        {% if dish.image %}
+                            <img src="{{ dish.image.url }}" alt="{{ dish.name }}" class="image is-128x128">
+                        {% endif %}
+
+                        <br>
+
+                        <p class="subtitle">
+                            Dish Price:
+                        </p>
+                        <p>
+                            {{ dish.price }}
+                        </p>
+
+                        <br>
+
+                        <p class="subtitle">
+                            Dish Review:
+                        </p>
+                        <p>
+                            {{ dish.review }}
+                        </p>
+
+                        <br>
+                        
+                        <p class="subtitle">
+                            Rating:
+                        </p>
+                        <p>
+                            {{ dish.rating }} out of 5
+                        </p>
+
+                        <!-- Add more attributes here at some point. -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Discover the Delights at {{ restaurant.name }}
+                </h1>
+                <h2 class="subtitle">
+                    A culinary journey awaits you
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+    <div class="columns is-multiline">
+        {% for dish in dishes %}
+            <div class="column is-3">
+                <div class="card has-background-grey">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4 has-text-centered has-text-white">
+                                    {{ dish.name }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="card-footer">
+                        <a href="{% url 'dish_detail' restaurant_slug=restaurant.slug dish_slug=dish.slug %}" class="card-footer-item">Dish Detail</a>
+                    </footer>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
